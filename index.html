@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SSYN Command Center</title>
+    <meta
+      name="description"
+      content="A polished mobile-first command center for managing a Last War alliance."
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Alliance Operations</p>
+          <h1>SSYN Command Center</h1>
+        </div>
+        <div class="status-pill">
+          <span class="dot"></span>
+          <span>Online</span>
+        </div>
+      </header>
+
+      <main class="content">
+        <section id="home" class="panel active" style="--accent: #3b82f6;">
+          <div class="hero-card">
+            <div class="hero-copy">
+              <p class="eyebrow">Tonight's focus</p>
+              <h2>Lead the alliance with calm precision.</h2>
+              <p>
+                Coordinate squads, monitor battlefield momentum, and keep every
+                operation moving smoothly.
+              </p>
+            </div>
+            <div class="hero-metric">
+              <span>Next wave</span>
+              <strong>14:30 UTC</strong>
+            </div>
+          </div>
+
+          <div class="section-heading">
+            <h3>Mission board</h3>
+            <a href="#">View all</a>
+          </div>
+
+          <div class="module-grid">
+            <article class="module-card home">
+              <div class="card-icon">🏠</div>
+              <div>
+                <h4>Home</h4>
+                <p>Daily objectives and alliance pulse.</p>
+              </div>
+            </article>
+            <article class="module-card roster">
+              <div class="card-icon">🛡️</div>
+              <div>
+                <h4>Roster</h4>
+                <p>Keep your strongest players aligned.</p>
+              </div>
+            </article>
+            <article class="module-card desert">
+              <div class="card-icon">🌵</div>
+              <div>
+                <h4>Desert Storm</h4>
+                <p>Track attack pressure and defense lanes.</p>
+              </div>
+            </article>
+            <article class="module-card canyon">
+              <div class="card-icon">🪨</div>
+              <div>
+                <h4>Canyon Storm</h4>
+                <p>Monitor supply and reinforcement timing.</p>
+              </div>
+            </article>
+          </div>
+
+          <div class="info-card">
+            <div class="info-row">
+              <span>Alliance strength</span>
+              <strong>92%</strong>
+            </div>
+            <div class="bar">
+              <span></span>
+            </div>
+            <div class="info-row muted">
+              <span>Prepared for the next battle</span>
+              <strong>12 alerts</strong>
+            </div>
+          </div>
+        </section>
+
+        <section id="roster" class="panel" style="--accent: #10b981;" hidden>
+          <div class="section-heading">
+            <h3>Roster overview</h3>
+            <a href="#">Manage</a>
+          </div>
+          <div class="stack-card">
+            <div class="stack-item">
+              <span>Active commanders</span>
+              <strong>24</strong>
+            </div>
+            <div class="stack-item">
+              <span>Ready for deployment</span>
+              <strong>19</strong>
+            </div>
+          </div>
+          <div class="list-card">
+            <div class="list-item">
+              <div>
+                <h4>Vega</h4>
+                <p>Frontline leader</p>
+              </div>
+              <span class="chip green">Ready</span>
+            </div>
+            <div class="list-item">
+              <div>
+                <h4>Nova</h4>
+                <p>Support specialist</p>
+              </div>
+              <span class="chip green">Ready</span>
+            </div>
+            <div class="list-item">
+              <div>
+                <h4>Rex</h4>
+                <p>Scout and relay</p>
+              </div>
+              <span class="chip amber">Standby</span>
+            </div>
+          </div>
+        </section>
+
+        <section id="desert" class="panel" style="--accent: #dc2626;" hidden>
+          <div class="section-heading">
+            <h3>Desert Storm</h3>
+            <a href="#">Tune plan</a>
+          </div>
+          <div class="info-card accent-card">
+            <p>Priority objective</p>
+            <h4>Secure the eastern ridge before dusk.</h4>
+            <div class="bar">
+              <span class="red"></span>
+            </div>
+            <small>67% completed</small>
+          </div>
+          <div class="list-card">
+            <div class="list-item">
+              <div>
+                <h4>Attack wave</h4>
+                <p>3 squads assigned</p>
+              </div>
+              <span class="chip red">Live</span>
+            </div>
+            <div class="list-item">
+              <div>
+                <h4>Defense hold</h4>
+                <p>2 squads rotating</p>
+              </div>
+              <span class="chip red">Critical</span>
+            </div>
+          </div>
+        </section>
+
+        <section id="canyon" class="panel" style="--accent: #f59e0b;" hidden>
+          <div class="section-heading">
+            <h3>Canyon Storm</h3>
+            <a href="#">Review</a>
+          </div>
+          <div class="info-card accent-card">
+            <p>Supply window</p>
+            <h4>Reinforcements arrive in 12 minutes.</h4>
+            <div class="bar">
+              <span class="amber"></span>
+            </div>
+            <small>82% prepared</small>
+          </div>
+          <div class="stack-card">
+            <div class="stack-item">
+              <span>Fuel reserve</span>
+              <strong>High</strong>
+            </div>
+            <div class="stack-item">
+              <span>Risk level</span>
+              <strong>Moderate</strong>
+            </div>
+          </div>
+        </section>
+
+        <section id="strongholds" class="panel" style="--accent: #8b5cf6;" hidden>
+          <div class="section-heading">
+            <h3>Strongholds</h3>
+            <a href="#">Upgrade</a>
+          </div>
+          <div class="list-card">
+            <div class="list-item">
+              <div>
+                <h4>North Gate</h4>
+                <p>Shield strength stable</p>
+              </div>
+              <span class="chip purple">Secure</span>
+            </div>
+            <div class="list-item">
+              <div>
+                <h4>West Bastion</h4>
+                <p>Needs reinforcement</p>
+              </div>
+              <span class="chip purple">Alert</span>
+            </div>
+          </div>
+        </section>
+
+        <section id="duel" class="panel" style="--accent: #06b6d4;" hidden>
+          <div class="section-heading">
+            <h3>Warzone Duel</h3>
+            <a href="#">Challenge</a>
+          </div>
+          <div class="info-card accent-card">
+            <p>Current challenge</p>
+            <h4>Hold the center lane for 8 more rounds.</h4>
+            <div class="bar">
+              <span class="cyan"></span>
+            </div>
+            <small>58% of target reached</small>
+          </div>
+        </section>
+
+        <section id="reports" class="panel" style="--accent: #6366f1;" hidden>
+          <div class="section-heading">
+            <h3>Reports</h3>
+            <a href="#">Export</a>
+          </div>
+          <div class="list-card">
+            <div class="list-item">
+              <div>
+                <h4>Battle summary</h4>
+                <p>4 victories this week</p>
+              </div>
+              <span class="chip indigo">Updated</span>
+            </div>
+            <div class="list-item">
+              <div>
+                <h4>Resource flow</h4>
+                <p>Steady incoming support</p>
+              </div>
+              <span class="chip indigo">Stable</span>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <nav class="bottom-nav" aria-label="Primary">
+        <button class="nav-btn active" data-target="home" aria-label="Home">
+          <span>🏠</span>
+          <small>Home</small>
+        </button>
+        <button class="nav-btn" data-target="roster" aria-label="Roster">
+          <span>🛡️</span>
+          <small>Roster</small>
+        </button>
+        <button class="nav-btn" data-target="desert" aria-label="Desert Storm">
+          <span>🌵</span>
+          <small>Desert</small>
+        </button>
+        <button class="nav-btn" data-target="canyon" aria-label="Canyon Storm">
+          <span>🪨</span>
+          <small>Canyon</small>
+        </button>
+        <button class="nav-btn" data-target="strongholds" aria-label="Strongholds">
+          <span>🏰</span>
+          <small>Holds</small>
+        </button>
+      </nav>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
