@@ -1,12 +1,11 @@
-const pageCards = document.querySelectorAll('.page-card');
+const STORAGE_KEY = 'ssyn-roster-v1';
 const navItems = document.querySelectorAll('.nav-item');
-const pageTitle = document.getElementById('pageTitle');
 const mobileToggle = document.getElementById('mobileToggle');
 const sidebar = document.getElementById('sidebar');
 const sidebarBackdrop = document.getElementById('sidebarBackdrop');
 const rosterBody = document.getElementById('rosterBody');
 const rosterSearch = document.getElementById('rosterSearch');
-const rosterSort = document.getElementById('rosterSort');
+const sortButton = document.getElementById('sortButton');
 const addPlayerBtn = document.getElementById('addPlayerBtn');
 const playerModal = document.getElementById('playerModal');
 const closeModalBtn = document.getElementById('closeModalBtn');
@@ -14,37 +13,27 @@ const cancelPlayerBtn = document.getElementById('cancelPlayerBtn');
 const playerForm = document.getElementById('playerForm');
 const playerModalTitle = document.getElementById('playerModalTitle');
 
-const pageLabels = {
-  roster: 'Alliance Roster',
-  desert: 'Desert Storm',
-  'ds-team-builder': 'DS Team Builder',
-  canyon: 'Canyon Storm',
-  'cs-team-builder': 'CS Team Builder',
-  warzone: 'Warzone Duel',
-  season: 'Season Land',
-  history: 'Event History',
-  rankings: 'Participation Rankings',
-  settings: 'Settings',
-};
-
-let players = [];
-
+let players = loadPlayers();
 let editingId = null;
+let sortMode = 'name';
+
+function loadPlayers() {
+  try {
+    const stored = localStorage.getItem(STORAGE_KEY);
+    return stored ? JSON.parse(stored) : [];
+  } catch {
+    return [];
+  }
+}
+
+function savePlayers() {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(players));
+}
 
 function showPage(pageId) {
-  pageCards.forEach((card) => {
-    const isActive = card.id === pageId;
-    card.hidden = !isActive;
-    card.classList.toggle('active', isActive);
-  });
-
   navItems.forEach((item) => {
     item.classList.toggle('active', item.dataset.page === pageId);
   });
-
-  if (pageTitle) {
-    pageTitle.textContent = pageLabels[pageId] || 'Alliance Roster';
-  }
 
   if (window.innerWidth <= 960) {
     closeSidebar();
@@ -65,19 +54,21 @@ function closeSidebar() {
   document.body.classList.remove('modal-open');
 }
 
+function getSortLabel(mode) {
+  if (mode === 'rank') return 'Rank';
+  if (mode === 'thp') return 'THP';
+  return 'Name';
+}
+
 function renderRoster() {
   if (!rosterBody) {
     return;
   }
 
   const query = (rosterSearch?.value || '').trim().toLowerCase();
-  const sortMode = rosterSort?.value || 'name';
 
   const filteredPlayers = players
-    .filter((player) => {
-      const haystack = `${player.name}`.toLowerCase();
-      return haystack.includes(query);
-    })
+    .filter((player) => `${player.name}`.toLowerCase().includes(query))
     .sort((a, b) => {
       if (sortMode === 'rank') {
         return a.rank.localeCompare(b.rank);
@@ -87,6 +78,10 @@ function renderRoster() {
       }
       return a.name.localeCompare(b.name);
     });
+
+  if (sortButton) {
+    sortButton.textContent = `Sort: ${getSortLabel(sortMode)}`;
+  }
 
   if (!filteredPlayers.length) {
     rosterBody.innerHTML = `
@@ -106,20 +101,29 @@ function renderRoster() {
               <span class="thp-value">THP ${player.thp.toFixed(1)}</span>
             </span>
           </span>
-          <span class="roster-card__edit" aria-hidden="true">✎</span>
+          <span class="roster-card__icon" aria-hidden="true">✎</span>
         </button>
       `
     )
     .join('');
 }
 
+function toggleSort() {
+  const modes = ['name', 'rank', 'thp'];
+  const currentIndex = modes.indexOf(sortMode);
+  sortMode = modes[(currentIndex + 1) % modes.length];
+  renderRoster();
+}
+
 function openPlayerModal(playerId = null) {
   editingId = playerId;
+
   if (playerId) {
     const player = players.find((entry) => entry.id === playerId);
     if (!player) {
       return;
     }
+
     playerModalTitle.textContent = 'Edit Player';
     playerForm.elements.name.value = player.name;
     playerForm.elements.rank.value = player.rank;
@@ -161,6 +165,7 @@ function handlePlayerSubmit(event) {
     players = [nextPlayer, ...players];
   }
 
+  savePlayers();
   renderRoster();
   closePlayerModal();
 }
@@ -191,6 +196,7 @@ mobileToggle?.addEventListener('click', () => {
 
 sidebarBackdrop?.addEventListener('click', closeSidebar);
 addPlayerBtn?.addEventListener('click', () => openPlayerModal());
+sortButton?.addEventListener('click', toggleSort);
 closeModalBtn?.addEventListener('click', closePlayerModal);
 cancelPlayerBtn?.addEventListener('click', closePlayerModal);
 playerForm?.addEventListener('submit', handlePlayerSubmit);
@@ -198,10 +204,6 @@ rosterBody?.addEventListener('click', handleRosterAction);
 
 if (rosterSearch) {
   rosterSearch.addEventListener('input', renderRoster);
-}
-
-if (rosterSort) {
-  rosterSort.addEventListener('change', renderRoster);
 }
 
 playerModal?.addEventListener('click', (event) => {

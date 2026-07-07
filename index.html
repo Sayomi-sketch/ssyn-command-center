@@ -37,40 +37,40 @@
 
         <nav class="sidebar-nav" aria-label="Primary navigation">
           <button class="nav-item active" type="button" data-page="roster">
-            <span class="nav-icon">👥</span>
+            <span class="nav-icon">🏠</span>
             <span>Alliance Roster</span>
           </button>
           <button class="nav-item" type="button" data-page="desert">
             <span class="nav-icon">🌵</span>
             <span>Desert Storm</span>
           </button>
-          <button class="nav-item" type="button" data-page="ds-team-builder">
-            <span class="nav-icon">⚡</span>
-            <span>DS Team Builder</span>
+          <button class="nav-item" type="button" data-page="desert-builder">
+            <span class="nav-icon">⚔</span>
+            <span>Desert Storm Team Builder</span>
           </button>
           <button class="nav-item" type="button" data-page="canyon">
             <span class="nav-icon">🏜</span>
             <span>Canyon Storm</span>
           </button>
-          <button class="nav-item" type="button" data-page="cs-team-builder">
-            <span class="nav-icon">⚡</span>
-            <span>CS Team Builder</span>
+          <button class="nav-item" type="button" data-page="canyon-builder">
+            <span class="nav-icon">🛡</span>
+            <span>Canyon Storm Team Builder</span>
           </button>
           <button class="nav-item" type="button" data-page="warzone">
-            <span class="nav-icon">⚔</span>
+            <span class="nav-icon">🎯</span>
             <span>Warzone Duel</span>
           </button>
           <button class="nav-item" type="button" data-page="season">
             <span class="nav-icon">🏰</span>
             <span>Season Land</span>
           </button>
+          <button class="nav-item" type="button" data-page="participation">
+            <span class="nav-icon">📈</span>
+            <span>Participation</span>
+          </button>
           <button class="nav-item" type="button" data-page="history">
             <span class="nav-icon">📚</span>
-            <span>Event History</span>
-          </button>
-          <button class="nav-item" type="button" data-page="rankings">
-            <span class="nav-icon">📈</span>
-            <span>Participation Rankings</span>
+            <span>History</span>
           </button>
           <button class="nav-item" type="button" data-page="settings">
             <span class="nav-icon">⚙</span>
@@ -79,148 +79,51 @@
         </nav>
       </aside>
 
-      <div class="main-panel">
+      <main class="main-panel">
         <header class="topbar">
           <div>
-            <p class="eyebrow">SSYN</p>
-            <h2 id="pageTitle">Alliance Roster</h2>
+            <p class="eyebrow">SSYN command desk</p>
+            <h1>Alliance Roster</h1>
           </div>
-          <div class="topbar-actions">
-            <div class="status-pill">
-              <span class="dot"></span>
-              <span>Live roster</span>
-            </div>
-          </div>
+          <div class="topbar-pill">Live roster</div>
         </header>
 
-        <main class="content">
-          <section class="page-card active" id="roster">
-            <div class="content-card">
-              <div class="card-heading">
-                <div>
-                  <p class="eyebrow">Master roster</p>
-                  <h3>Alliance Roster</h3>
-                </div>
-                <button class="pill-button" id="addPlayerBtn" type="button">+ Add Player</button>
-              </div>
-
-              <div class="toolbar">
-                <label class="search-field" for="rosterSearch">
-                  <span>⌕</span>
-                  <input id="rosterSearch" type="search" placeholder="Search players" />
-                </label>
-
-                <div class="toolbar-meta">
-                  <label class="select-chip">
-                    <span>Sort</span>
-                    <select id="rosterSort">
-                      <option value="name">Name</option>
-                      <option value="rank">Rank</option>
-                      <option value="thp">THP</option>
-                    </select>
-                  </label>
-                </div>
-              </div>
-
-              <div class="roster-list-shell">
-                <div class="roster-list" id="rosterBody"></div>
-              </div>
-            </div>
-          </section>
-
-          <section class="page-card" id="desert" hidden>
-            <div class="placeholder-card">
+        <section class="roster-screen" aria-labelledby="rosterTitle">
+          <div class="panel">
+            <div class="panel-heading">
               <div>
-                <h3>Desert Storm</h3>
-                <p>Placeholder page ready for the next build step.</p>
+                <p class="eyebrow">Master player database</p>
+                <h2 id="rosterTitle">Alliance Roster</h2>
               </div>
             </div>
-          </section>
 
-          <section class="page-card" id="ds-team-builder" hidden>
-            <div class="placeholder-card">
-              <div>
-                <h3>DS Team Builder</h3>
-                <p>Placeholder page ready for the next build step.</p>
-              </div>
-            </div>
-          </section>
+            <div class="toolbar">
+              <label class="search-field" for="rosterSearch">
+                <span aria-hidden="true">⌕</span>
+                <input id="rosterSearch" type="search" placeholder="Search players" />
+              </label>
 
-          <section class="page-card" id="canyon" hidden>
-            <div class="placeholder-card">
-              <div>
-                <h3>Canyon Storm</h3>
-                <p>Placeholder page ready for the next build step.</p>
+              <div class="toolbar-actions">
+                <button class="ghost-button" id="sortButton" type="button">Sort: Name</button>
+                <button class="primary-button" id="addPlayerBtn" type="button">+ Add Player</button>
               </div>
             </div>
-          </section>
 
-          <section class="page-card" id="cs-team-builder" hidden>
-            <div class="placeholder-card">
-              <div>
-                <h3>CS Team Builder</h3>
-                <p>Placeholder page ready for the next build step.</p>
-              </div>
-            </div>
-          </section>
-
-          <section class="page-card" id="warzone" hidden>
-            <div class="placeholder-card">
-              <div>
-                <h3>Warzone Duel</h3>
-                <p>Placeholder page ready for the next build step.</p>
-              </div>
-            </div>
-          </section>
-
-          <section class="page-card" id="season" hidden>
-            <div class="placeholder-card">
-              <div>
-                <h3>Season Land</h3>
-                <p>Placeholder page ready for the next build step.</p>
-              </div>
-            </div>
-          </section>
-
-          <section class="page-card" id="history" hidden>
-            <div class="placeholder-card">
-              <div>
-                <h3>Event History</h3>
-                <p>Placeholder page ready for the next build step.</p>
-              </div>
-            </div>
-          </section>
-
-          <section class="page-card" id="rankings" hidden>
-            <div class="placeholder-card">
-              <div>
-                <h3>Participation Rankings</h3>
-                <p>Placeholder page ready for the next build step.</p>
-              </div>
-            </div>
-          </section>
-
-          <section class="page-card" id="settings" hidden>
-            <div class="placeholder-card">
-              <div>
-                <h3>Settings</h3>
-                <p>Placeholder page ready for the next build step.</p>
-              </div>
-            </div>
-          </section>
-        </main>
-      </div>
+            <div class="roster-list" id="rosterBody"></div>
+          </div>
+        </section>
+      </main>
     </div>
 
     <div class="modal" id="playerModal" hidden>
       <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="playerModalTitle">
         <div class="modal-header">
           <h3 class="modal-title" id="playerModalTitle">Add Player</h3>
-          <button class="icon-btn" id="closeModalBtn" type="button" aria-label="Close dialog">✕</button>
+          <button class="icon-button" id="closeModalBtn" type="button" aria-label="Close dialog">✕</button>
         </div>
 
         <form id="playerForm" class="modal-form">
-          <div class="field-grid">
+          <div class="field-stack">
             <label class="field">
               <span>Player Name</span>
               <input id="playerName" name="name" type="text" required />
