@@ -6,90 +6,11 @@
     <title>SSYN Command Center</title>
     <meta
       name="description"
-<<<<<<< HEAD
-      content="SSYN Command Center is a premium alliance roster workspace for modern team coordination."
-=======
       content="Premium command center for managing SSYN alliance operations."
->>>>>>> b6847643722e6ab21e108fb6b08546378ab81423
     />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-<<<<<<< HEAD
-    <div class="app-shell">
-      <button class="mobile-toggle" id="mobileToggle" type="button" aria-label="Toggle navigation" aria-expanded="false">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-
-      <div class="sidebar-backdrop" id="sidebarBackdrop" hidden></div>
-
-      <aside class="sidebar" id="sidebar">
-        <div class="brand">
-          <div class="brand-mark" aria-hidden="true">
-            <svg viewBox="0 0 64 64" role="img">
-              <path d="M32 6 48 14v14c0 12-7 22-16 30-9-8-16-18-16-30V14L32 6Z" />
-              <path d="M24 28h16" />
-              <path d="M27 28v12h10V28" />
-            </svg>
-          </div>
-          <div class="brand-copy">
-            <span class="brand-name">SSYN</span>
-            <span class="brand-subtitle">Command Center</span>
-          </div>
-        </div>
-
-        <nav class="sidebar-nav" aria-label="Primary navigation">
-          <button class="nav-item active" type="button" data-page="roster">
-            <span class="nav-icon">🏠</span>
-            <span>Alliance Roster</span>
-          </button>
-          <button class="nav-item" type="button" data-page="desert">
-            <span class="nav-icon">🌵</span>
-            <span>Desert Storm</span>
-          </button>
-          <button class="nav-item" type="button" data-page="desert-builder">
-            <span class="nav-icon">⚔</span>
-            <span>Desert Storm Team Builder</span>
-          </button>
-          <button class="nav-item" type="button" data-page="canyon">
-            <span class="nav-icon">🏜</span>
-            <span>Canyon Storm</span>
-          </button>
-          <button class="nav-item" type="button" data-page="canyon-builder">
-            <span class="nav-icon">🛡</span>
-            <span>Canyon Storm Team Builder</span>
-          </button>
-          <button class="nav-item" type="button" data-page="warzone">
-            <span class="nav-icon">🎯</span>
-            <span>Warzone Duel</span>
-          </button>
-          <button class="nav-item" type="button" data-page="season">
-            <span class="nav-icon">🏰</span>
-            <span>Season Land</span>
-          </button>
-          <button class="nav-item" type="button" data-page="participation">
-            <span class="nav-icon">📈</span>
-            <span>Participation</span>
-          </button>
-          <button class="nav-item" type="button" data-page="history">
-            <span class="nav-icon">📚</span>
-            <span>History</span>
-          </button>
-          <button class="nav-item" type="button" data-page="settings">
-            <span class="nav-icon">⚙</span>
-            <span>Settings</span>
-          </button>
-        </nav>
-      </aside>
-
-      <main class="main-panel">
-        <header class="topbar">
-          <div>
-            <p class="eyebrow">SSYN command desk</p>
-            <h1>Alliance Roster</h1>
-=======
     <div class="app-container">
       <!-- Mobile Header -->
       <header class="mobile-header">
@@ -192,69 +113,8 @@
               </svg>
               Activity Rankings
             </button>
->>>>>>> b6847643722e6ab21e108fb6b08546378ab81423
-          </div>
-          <div class="topbar-pill">Live roster</div>
-        </header>
-
-<<<<<<< HEAD
-        <section class="roster-screen" aria-labelledby="rosterTitle">
-          <div class="panel">
-            <div class="panel-heading">
-              <div>
-                <p class="eyebrow">Master player database</p>
-                <h2 id="rosterTitle">Alliance Roster</h2>
-              </div>
-            </div>
-
-            <div class="toolbar">
-              <label class="search-field" for="rosterSearch">
-                <span aria-hidden="true">⌕</span>
-                <input id="rosterSearch" type="search" placeholder="Search players" />
-              </label>
-
-              <div class="toolbar-actions">
-                <button class="ghost-button" id="sortButton" type="button">Sort: Name</button>
-                <button class="primary-button" id="addPlayerBtn" type="button">+ Add Player</button>
-              </div>
-            </div>
-
-            <div class="roster-list" id="rosterBody"></div>
-          </div>
-        </section>
-      </main>
-    </div>
-
-    <div class="modal" id="playerModal" hidden>
-      <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="playerModalTitle">
-        <div class="modal-header">
-          <h3 class="modal-title" id="playerModalTitle">Add Player</h3>
-          <button class="icon-button" id="closeModalBtn" type="button" aria-label="Close dialog">✕</button>
-        </div>
-
-        <form id="playerForm" class="modal-form">
-          <div class="field-stack">
-            <label class="field">
-              <span>Player Name</span>
-              <input id="playerName" name="name" type="text" required />
-            </label>
-            <label class="field">
-              <span>Rank</span>
-              <input id="playerRank" name="rank" type="text" required />
-            </label>
-            <label class="field">
-              <span>THP</span>
-              <input id="playerThp" name="thp" type="number" min="0" step="0.1" required />
-            </label>
           </div>
 
-          <div class="modal-actions">
-            <button class="button-secondary" id="cancelPlayerBtn" type="button">Cancel</button>
-            <button class="button-primary" type="submit">Save Player</button>
-          </div>
-        </form>
-      </div>
-=======
           <div class="nav-section">
             <p class="nav-label">Settings</p>
             <button class="nav-item" data-section="settings">
@@ -429,7 +289,6 @@
 
         </div>
       </main>
->>>>>>> b6847643722e6ab21e108fb6b08546378ab81423
     </div>
 
     <script src="script.js"></script>
